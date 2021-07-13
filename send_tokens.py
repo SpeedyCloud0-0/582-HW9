@@ -28,9 +28,9 @@ def send_tokens( receiver_pk, tx_amount ):
     private_key, account_address = account.generate_account()
     mnemonic_phrase = mnemonic.from_private_key(private_key)
     public_key = mnemonic.to_public_key(mnemonic_phrase)
-    print(mnemonic_phrase)
-    print(account_address)
-    print(public_key)
+    print("My mnemonic_phrase: {}".format(mnemonic_phrase))
+    print("My public_key: {}".format(public_key))
+    print("My account_address: {}".format(account_address))
 
 
 

@@ -30,6 +30,7 @@ def send_tokens( receiver_pk, tx_amount ):
     public_key = mnemonic.to_public_key(mnemonic_phrase)
     print(mnemonic_phrase)
     print(account_address)
+    print(public_key)
 
 
 

@@ -17,11 +17,12 @@ headers = {
 
 acl = algod.AlgodClient(algod_token, algod_address, headers)
 min_balance = 100000  # https://developer.algorand.org/docs/features/accounts/#minimum-balance
+
 # generate an account
 private_key, account_address = account.generate_account()
 mnemonic_phrase = mnemonic.from_private_key(private_key)
 print("My account_address: {}".format(account_address))
-
+print(mnemonic_phrase)
 
 def send_tokens(receiver_pk, tx_amount):
     params = acl.suggested_params()

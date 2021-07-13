@@ -3,6 +3,7 @@
 from algosdk.v2client import algod
 from algosdk import mnemonic
 from algosdk import transaction
+from algosdk import account
 
 #Connect to Algorand node maintained by PureStake
 #Connect to Algorand node maintained by PureStake
@@ -23,7 +24,13 @@ def send_tokens( receiver_pk, tx_amount ):
     tx_fee = params.min_fee
     last_valid_round = params.last
 
-    #Your code here
+    # generate an account
+    private_key, account_address = account.generate_accout()
+    mnemonic_phrase = mnemonic.from_private_key(private_key)
+    public_key = mnemonic.to_public_key(mnemonic_phrase)
+    print(public_key)
+    
+
 
     return sender_pk, txid
 

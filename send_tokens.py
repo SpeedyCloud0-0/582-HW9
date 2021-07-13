@@ -31,11 +31,15 @@ def send_tokens(receiver_pk, tx_amount):
     tx_fee = params.min_fee
     last_valid_round = params.last
 
+    sender_address = "A6WMB5K7WINZ4SU2U33K2XBSKR6YUIBFKVKDNCV5J4OASR54K6MSZSIOJ4"
+    phrase = "inform lake track love vacuum juice virtual main define planet subway casual talent flip joke argue " \
+             "robust student above fat palace carpet mandate abstract neck "
+
     # construct the transaction
-    unsigned_txn = transaction.PaymentTxn(account_address, tx_fee, first_valid_round, last_valid_round, gen_hash,
+    unsigned_txn = transaction.PaymentTxn(sender_address, tx_fee, first_valid_round, last_valid_round, gen_hash,
                                           receiver_pk, tx_amount)
     print("Created Txn")
-    signed_txn = unsigned_txn.sign(mnemonic.to_private_key(mnemonic_phrase))
+    signed_txn = unsigned_txn.sign(mnemonic.to_private_key(phrase))
     print("Signed Txn")
     txid = acl.send_transaction(signed_txn)
     print("Successfully sent transaction with txID: {}".format(txid))

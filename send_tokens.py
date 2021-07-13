@@ -21,8 +21,8 @@ min_balance = 100000  # https://developer.algorand.org/docs/features/accounts/#m
 # generate an account
 private_key, account_address = account.generate_account()
 mnemonic_phrase = mnemonic.from_private_key(private_key)
-print("My account_address: {}".format(account_address))
-print(mnemonic_phrase)
+# print("My account_address: {}".format(account_address))
+# print(mnemonic_phrase)
 
 def send_tokens(receiver_pk, tx_amount):
     params = acl.suggested_params()
@@ -38,9 +38,9 @@ def send_tokens(receiver_pk, tx_amount):
     # construct the transaction
     unsigned_txn = transaction.PaymentTxn(sender_address, tx_fee, first_valid_round, last_valid_round, gen_hash,
                                           receiver_pk, tx_amount)
-    print("Created Txn")
+    # print("Created Txn")
     signed_txn = unsigned_txn.sign(mnemonic.to_private_key(phrase))
-    print("Signed Txn")
+    # print("Signed Txn")
     txid = acl.send_transaction(signed_txn)
     print("Successfully sent transaction with txID: {}".format(txid))
 

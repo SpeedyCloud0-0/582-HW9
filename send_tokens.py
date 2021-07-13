@@ -33,7 +33,7 @@ def send_tokens(receiver_pk, tx_amount):
 
     sender_address = "A6WMB5K7WINZ4SU2U33K2XBSKR6YUIBFKVKDNCV5J4OASR54K6MSZSIOJ4"
     phrase = "inform lake track love vacuum juice virtual main define planet subway casual talent flip joke argue " \
-             "robust student above fat palace carpet mandate abstract neck "
+             "robust student above fat palace carpet mandate abstract neck"
 
     # construct the transaction
     unsigned_txn = transaction.PaymentTxn(sender_address, tx_fee, first_valid_round, last_valid_round, gen_hash,

@@ -25,11 +25,11 @@ def send_tokens( receiver_pk, tx_amount ):
     last_valid_round = params.last
 
     # generate an account
-    private_key, account_address = account.generate_accout()
+    private_key, account_address = algod.generate_accout()
     mnemonic_phrase = mnemonic.from_private_key(private_key)
     public_key = mnemonic.to_public_key(mnemonic_phrase)
     print(public_key)
-    
+
 
 
     return sender_pk, txid

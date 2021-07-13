@@ -44,7 +44,7 @@ def send_tokens(receiver_pk, tx_amount):
     txid = acl.send_transaction(signed_txn)
     print("Successfully sent transaction with txID: {}".format(txid))
 
-    return account_address, txid
+    return sender_address, txid
 
 
 # Function from Algorand Inc.

@@ -17,6 +17,10 @@ headers = {
 
 acl = algod.AlgodClient(algod_token, algod_address, headers)
 min_balance = 100000  # https://developer.algorand.org/docs/features/accounts/#minimum-balance
+# generate an account
+private_key, account_address = account.generate_account()
+mnemonic_phrase = mnemonic.from_private_key(private_key)
+print("My mnemonic_phrase: {}".format(mnemonic_phrase))
 
 
 def send_tokens(receiver_pk, tx_amount):
@@ -25,12 +29,6 @@ def send_tokens(receiver_pk, tx_amount):
     first_valid_round = params.first
     tx_fee = params.min_fee
     last_valid_round = params.last
-
-    # generate an account
-    private_key, account_address = account.generate_account()
-    mnemonic_phrase = mnemonic.from_private_key(private_key)
-    print("My mnemonic_phrase: {}".format(mnemonic_phrase))
-    # print("My account_address: {}".format(account_address))
 
     # construct the transaction
     unsigned_txn = transaction.PaymentTxn(account_address, tx_fee, first_valid_round, last_valid_round, gen_hash,

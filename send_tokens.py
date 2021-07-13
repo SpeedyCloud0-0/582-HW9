@@ -29,13 +29,15 @@ def send_tokens(receiver_pk, tx_amount):
     # generate an account
     private_key, account_address = account.generate_account()
     mnemonic_phrase = mnemonic.from_private_key(private_key)
-    # print("My mnemonic_phrase: {}".format(mnemonic_phrase))
+    print("My mnemonic_phrase: {}".format(mnemonic_phrase))
     # print("My account_address: {}".format(account_address))
 
     # construct the transaction
     unsigned_txn = transaction.PaymentTxn(account_address, tx_fee, first_valid_round, last_valid_round, gen_hash,
                                           receiver_pk, tx_amount)
+    print("Created Txn")
     signed_txn = unsigned_txn.sign(mnemonic.to_private_key(mnemonic_phrase))
+    print("Signed Txn")
     txid = acl.send_transaction(signed_txn)
     print("Successfully sent transaction with txID: {}".format(txid))
 

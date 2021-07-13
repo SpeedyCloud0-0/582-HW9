@@ -20,7 +20,7 @@ min_balance = 100000  # https://developer.algorand.org/docs/features/accounts/#m
 # generate an account
 private_key, account_address = account.generate_account()
 mnemonic_phrase = mnemonic.from_private_key(private_key)
-print("My mnemonic_phrase: {}".format(mnemonic_phrase))
+print("My account_address: {}".format(account_address))
 
 
 def send_tokens(receiver_pk, tx_amount):
